@@ -1,19 +1,27 @@
-
+---
+date: 2025-07-31
+topics: [backend, nodejs, express]
+day: 4
 ---
 
-## ✍️ Writing Habits
+# 📘 Day 4 – Node.js Routing & Middleware
 
-- 🕐 **Daily**: Log what I did, learned, and struggled with  
-  → Written after each coding session (`logs/YYYY-MM-DD---topics.md`)
+## ✅ What I Worked On
+- Built backend routes for login and registration
+- Connected MongoDB Atlas to backend
+- Wrote custom middleware for input validation
 
-- 📆 **Weekly**: Reflect on progress every Sunday or Monday  
-  → Summary of the week's highlights and low points (`reviews/week-XX.md`)
+## 📚 What I Learned
+- How Express handles middleware chaining
+- JWT authentication basics
+- Structuring routes using modular folders (`/api/v1/` style)
 
-- 📦 **Project Logs**: Document project planning, building, and lessons  
-  → Track major side projects (`projects/project-name.md`)
+## ❌ Blockers
+- Faced a bug while decoding JWT token due to secret mismatch
 
----
+## 🧠 Reflection
+Feeling much better with Node.js. Folder structure feels natural now, and middleware chaining in Express makes a lot of sense.
 
-## 📌 File Naming Conventions
-
-### Daily Logs
+## 🔗 References / Code
+- [Backend Repo](https://github.com/Sangam5756/devflow)
+- [Commit](https://github.com/Sangam5756/devflow/commit/abc456)
