@@ -1,10 +1,10 @@
 ---
 date: 2025-08-01
 topics: [nextjs, restapi, api-routes, async, db-handling, ssr, seo]
-day: 18
+day: 16
 ---
 
-# 📘 Day 18 – REST API Handlers, Async Fetching, SSR & SEO Mastery in Next.js
+# 📘 Day 16 – REST API Handlers, Async Fetching, SSR & SEO Mastery in Next.js
 
 ## ✅ What I Worked On
 
