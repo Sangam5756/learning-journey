@@ -1,10 +1,10 @@
 ---
 date: 2025-08-06
 topics: [DevFlow, React, Components, DSA, TypeScript, Interview Prep]
-day: 20
+day: 21
 ---
 
-# Day 20 – Component Work, TypeScript Revision & DSA Practice
+# Day 21 – Component Work, TypeScript Revision & DSA Practice
 
 ## ✅ What I Worked On
 - Continued building DevFlow frontend
