@@ -1,6 +1,6 @@
 ---
-date: 2025-07-30
-topics: [frontend, react, nextjs, authentication, next-auth]
+date: 2025-08-12
+topics: [frontend, dsa, nextjs, authentication, next-auth]
 day: 26
 ---
 
@@ -13,9 +13,9 @@ day: 26
 - Configured `.env.local` for storing API keys and secrets.
 - Implemented `jwt` and `session` callbacks to attach a `uid` to the session.
 - Solved three linked list problems for DSA practice:
-  - Add Two Numbers – Implemented addition using linked lists to simulate digit-by-digit summation.
-  - Remove Nth Node from End – Used a two-pointer technique to achieve single-pass removal.
-  - Merge Two Sorted Lists – Merged two sorted linked lists into one without creating new nodes.
+  - **Add Two Numbers** – Implemented addition using linked lists to simulate digit-by-digit summation.
+  - **Remove Nth Node from End** – Used a two-pointer technique to achieve single-pass removal.
+  - **Merge Two Sorted Lists** – Merged two sorted linked lists into one without creating new nodes.
 
 ## 📚 What I Learned
 
@@ -30,9 +30,13 @@ day: 26
 
 ## 🧠 Reflection
 
-Today I did Next.js authentication setup .  
+Today I did Next.js authentication setup.  
 Now I have three working sign-in methods — Google, GitHub, and custom credentials — all feeding into a unified session object.  
 The main lesson: **90% of "NextAuth is broken" problems are just environment variable typos or callback URL mismatches**.  
 Next up, I want to secure API routes and create a polished login UI so the experience is smooth for real users.
 
-- **pow:** [github-code](https://github.com/Sangam5756/nextjs-revision/commit/ebb6654c40476c15ec2a6a05744d5b1fa29053fa)
+---
+
+**💻 pow:**  
+- GitHub commit: [ebb6654c40476c15ec2a6a05744d5b1fa29053fa](https://github.com/Sangam5756/nextjs-revision/commit/ebb6654c40476c15ec2a6a05744d5b1fa29053fa)  
+- Reference: [100xDevs – NextAuth Track (Harkirat)](https://projects.100xdevs.com/tracks/Next-Auth/La3EksBcKVqExEMwNAxa)
