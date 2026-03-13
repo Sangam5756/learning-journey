@@ -9,9 +9,10 @@ This repository documents my continuous learning as a software engineer through 
 ## 🗂️ Folder Structure
 ```
   learning-journey/
-├── logs/        → Daily logs in Markdown format
+├── blogs/       → Daily logs in Markdown format
 ├── reviews/     → Weekly reviews
 ├── projects/    → Project development journals
+├── scripts/     → Automation scripts
 └── README.md    → This file
 ```
 
@@ -20,7 +21,7 @@ This repository documents my continuous learning as a software engineer through 
 ## ✍️ Writing Habits
 
 - 🕐 **Daily**: Log what I did, learned, and struggled with  
-  → Written after each coding session (`logs/YYYY-MM-DD---topics.md`)
+  → Written after each coding session (`blogs/YYYY-MM-DD---topics.md`)
 
 - 📆 **Weekly**: Reflect on progress every Sunday or Monday  
   → Summary of the week's highlights and low points (`reviews/week-XX.md`)
@@ -35,14 +36,14 @@ This repository documents my continuous learning as a software engineer through 
 ### Daily Logs
 ```
 
-logs/YYYY-MM-DD---topic-tags.md
+blogs/YYYY-MM-DD---topic-tags.md
 
 ```
 **Example:**
 ```
 
-logs/2025-07-30---frontend-react.md
-logs/2025-07-31---backend-nodejs.md
+blogs/2025-07-30---frontend-react.md
+blogs/2025-07-31---backend-nodejs.md
 
 ```
 
@@ -110,3 +111,14 @@ My personal site fetches content directly from this repo using the GitHub API
 * 100 Days of Code
 * Learning in public
 * Developer portfolios that show process, not just results
+
+---
+
+## 🤖 Automated Social Sharing
+
+This repository includes automated X.com (Twitter) posting! Every day, a GitHub Action automatically:
+- 📝 Reads your latest blog post
+- 🎨 Generates an attractive image with your learnings
+- 🐦 Posts to X.com with relevant hashtags
+
+[Learn more about the automation →](scripts/README.md)

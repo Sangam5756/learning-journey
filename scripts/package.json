@@ -1,0 +1,14 @@
+{
+  "name": "learning-journey-x-automation",
+  "version": "1.0.0",
+  "description": "Automated X.com posts for daily learning journey",
+  "scripts": {
+    "post": "node post-to-x.js",
+    "test": "node post-to-x.js --dry-run"
+  },
+  "dependencies": {
+    "twitter-api-v2": "^1.17.2",
+    "@napi-rs/canvas": "^0.1.52",
+    "gray-matter": "^4.0.3"
+  }
+}
