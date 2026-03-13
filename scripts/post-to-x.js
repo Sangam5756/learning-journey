@@ -9,6 +9,16 @@ const BLOGS_DIR = path.join(__dirname, '../blogs');
 const OUTPUT_DIR = path.join(__dirname, 'output');
 const DRY_RUN = process.argv.includes('--dry-run');
 
+// Image generation constants
+const IMAGE_WIDTH = 1200;
+const IMAGE_HEIGHT = 675;
+const MAX_LEARNINGS_TO_SHOW = 3;
+const MAX_LEARNING_LENGTH = 70;
+
+// Tweet constants
+const TWITTER_CHAR_LIMIT = 280;
+const MAX_TWEET_LENGTH = 270; // Leave buffer for safety
+
 // Ensure output directory exists
 if (!fs.existsSync(OUTPUT_DIR)) {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -70,27 +80,24 @@ function extractLearnings(content) {
  * Generate an attractive image with the learning summary
  */
 async function generateImage(blogPost, learnings) {
-  const width = 1200;
-  const height = 675; // Twitter's recommended aspect ratio 16:9
-  
-  const canvas = createCanvas(width, height);
+  const canvas = createCanvas(IMAGE_WIDTH, IMAGE_HEIGHT);
   const ctx = canvas.getContext('2d');
   
   // Background gradient
-  const gradient = ctx.createLinearGradient(0, 0, width, height);
+  const gradient = ctx.createLinearGradient(0, 0, IMAGE_WIDTH, IMAGE_HEIGHT);
   gradient.addColorStop(0, '#1e3a8a'); // Dark blue
   gradient.addColorStop(0.5, '#3b82f6'); // Blue
   gradient.addColorStop(1, '#60a5fa'); // Light blue
   ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, width, height);
+  ctx.fillRect(0, 0, IMAGE_WIDTH, IMAGE_HEIGHT);
   
   // Add decorative elements
   ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
   ctx.beginPath();
-  ctx.arc(width - 100, 100, 150, 0, Math.PI * 2);
+  ctx.arc(IMAGE_WIDTH - 100, 100, 150, 0, Math.PI * 2);
   ctx.fill();
   ctx.beginPath();
-  ctx.arc(100, height - 100, 200, 0, Math.PI * 2);
+  ctx.arc(100, IMAGE_HEIGHT - 100, 200, 0, Math.PI * 2);
   ctx.fill();
   
   // Title
@@ -117,10 +124,12 @@ async function generateImage(blogPost, learnings) {
   
   ctx.font = '24px sans-serif';
   let y = 380;
-  const maxLearnings = Math.min(learnings.length, 3); // Show top 3 learnings
+  const maxLearnings = Math.min(learnings.length, MAX_LEARNINGS_TO_SHOW);
   for (let i = 0; i < maxLearnings; i++) {
     const learning = learnings[i];
-    const shortLearning = learning.length > 70 ? learning.substring(0, 67) + '...' : learning;
+    const shortLearning = learning.length > MAX_LEARNING_LENGTH 
+      ? learning.substring(0, MAX_LEARNING_LENGTH - 3) + '...' 
+      : learning;
     ctx.fillText(`• ${shortLearning}`, 80, y);
     y += 40;
   }
@@ -128,9 +137,9 @@ async function generateImage(blogPost, learnings) {
   // Footer
   ctx.font = 'bold 24px sans-serif';
   ctx.fillStyle = '#e0e7ff';
-  ctx.fillText('🚀 Learning in Public', 60, height - 80);
+  ctx.fillText('🚀 Learning in Public', 60, IMAGE_HEIGHT - 80);
   ctx.font = '20px sans-serif';
-  ctx.fillText('#100DaysOfCode #LearnInPublic #DevJourney', 60, height - 40);
+  ctx.fillText('#100DaysOfCode #LearnInPublic #DevJourney', 60, IMAGE_HEIGHT - 40);
   
   // Save the image
   const outputPath = path.join(OUTPUT_DIR, 'daily-learning.png');
@@ -158,8 +167,8 @@ function createTweetText(blogPost, learnings) {
   tweet += `${topicsHashtags} #100DaysOfCode #LearnInPublic`;
   
   // Twitter has a 280 character limit, so truncate if needed
-  if (tweet.length > 270) {
-    tweet = tweet.substring(0, 267) + '...';
+  if (tweet.length > MAX_TWEET_LENGTH) {
+    tweet = tweet.substring(0, MAX_TWEET_LENGTH - 3) + '...';
   }
   
   return tweet;
