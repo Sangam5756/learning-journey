@@ -1,0 +1,47 @@
+name: Daily X.com Learning Post
+
+on:
+  schedule:
+    # Run daily at 8:00 PM UTC (adjust to your timezone)
+    - cron: '0 20 * * *'
+  workflow_dispatch: # Allow manual triggering for testing
+
+jobs:
+  post-to-x:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 10 # Get recent commits to find latest blog
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: |
+          cd scripts
+          npm install
+      
+      - name: Generate image and post to X
+        env:
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+        run: |
+          cd scripts
+          node post-to-x.js
+      
+      - name: Upload generated image (for debugging)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-learning-image
+          path: scripts/output/*.png
+          if-no-files-found: ignore
