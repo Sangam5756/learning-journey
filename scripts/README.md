@@ -1,5 +1,7 @@
 # 🤖 X.com Daily Learning Post Automation
 
+[![Daily X.com Post](https://github.com/Sangam5756/learning-journey/actions/workflows/daily-x-post.yml/badge.svg)](https://github.com/Sangam5756/learning-journey/actions/workflows/daily-x-post.yml)
+
 This automation workflow automatically posts your daily learning journey to X.com (Twitter) with attractive, interactive images.
 
 ## 🌟 Features
@@ -9,6 +11,23 @@ This automation workflow automatically posts your daily learning journey to X.co
 - 📊 **Smart parsing** - Extracts key learnings from your blog posts automatically
 - 🔖 **Auto-hashtags** - Includes relevant hashtags based on topics
 - ⚡ **Manual trigger** - Can be run manually anytime via GitHub Actions
+
+## 🎨 What Gets Posted
+
+The automation generates a visually appealing 1200×675px image featuring:
+- 🎯 Your day number and learning journey title
+- 📅 Date of the blog post
+- 🔖 Topics covered (extracted from frontmatter)
+- 📚 Top 3 key learnings from your post
+- 🎨 Beautiful blue gradient background with decorative elements
+- 🏷️ Relevant hashtags for engagement
+
+The tweet includes:
+- Day number
+- Topics summary
+- First key learning as a "key takeaway"
+- Auto-generated hashtags based on topics
+- Standard hashtags: #100DaysOfCode #LearnInPublic
 
 ## 📋 Setup Instructions
 
